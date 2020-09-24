@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IETE Javascript workshop</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>
+        IETE workshop TODO list App
+    </h1>
+    <h1 id="player">
+        move of player x
+    </h1>
+    <div>
+        <h3>My tic tac toe game</h3>
+        <div style="text-align: center;">
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 1)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 2)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 3)"></button>
+            <br>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 4)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 5)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 6)"></button>
+            <br>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 7)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 8)"></button>
+            <button style="width: 100px;height: 100px;" onclick="playermove(event, 9)"></button>
+        </div>
+    </div>
+    <script>
+        let player = 'x';
+        let game = [ '','','','','','','','',''];
+        function playermove(event, move){
+            let winner = player;
+            if(event.target.innerHTML == ''){
+                game[move-1] = player;
+                event.target.innerHTML = player;
+                if(player == 'o'){
+                    player = 'x'
+                }else{
+                    player = 'o';
+                }
+                document.getElementById('player').innerHTML = 'move of player '+player;
+            }
+            let winnerplayer = checkgame(winner);
+            console.log(winnerplayer);
+        }
+
+        function checkgame(winner){
+            // &&
+            
+            if(game[0] == game[1] && game[1] == game[2] && game[1] && game[2] && game[0]){
+                return winner;
+
+            }
+            else if(game[3] == game[4] && game[4] == game[5] && game[4] && game[5] && game[3]){
+                return winner;
+            }
+            else if(game[6] == game[7] && game[7] == game[8] && game[6] && game[7] && game[8]){
+                return winner;
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
